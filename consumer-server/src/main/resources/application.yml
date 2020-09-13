@@ -16,4 +16,11 @@ eureka:
     instance-id: ${spring.application.name}:${server.port}
 user-server:
   ribbon:
-    NFLoadBalanceRuleClassName: com.netflix.loadbalancer.RandomRule #设置负载均衡策略随机（默认为轮询）lix.loadbalancer.RandomRule #���ø��ؾ�����������Ĭ��Ϊ��ѯ��oadbalancer.RandomRule #���ø��ؾ�����������Ĭ��Ϊ��ѯ��
+    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RandomRule #设置负载均衡策略随机（默认为轮询）
+  hystrix:
+    command:
+      default:
+        execution:
+          isolation:
+            thread:
+              timeoutInMillisecond: 600 # 设置hystrix的超时时间为6000ms

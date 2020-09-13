@@ -13,7 +13,7 @@ import java.util.List;
 
 @Service
 public class UserService {
-    @Autowired
+  /*  @Autowired
     private RestTemplate restTemplate; //基于HTTP协议的远程请求对象
 
 
@@ -24,16 +24,16 @@ public class UserService {
         List<User> users = new ArrayList<>();
 
         //不使用负载均衡，根据服务名称获取服务实例
-     /*   List<ServiceInstance> instances = discoveryClient.getInstances("user-server");
+     *//*   List<ServiceInstance> instances = discoveryClient.getInstances("user-server");
         ServiceInstance serviceInstance = instances.get(0);
-        String baseUrl = "http://"+serviceInstance.getHost()+":"+serviceInstance.getPort()+"/user/";*/
+        String baseUrl = "http://"+serviceInstance.getHost()+":"+serviceInstance.getPort()+"/user/";*//*
 //        String baseUrl = "http://localhost:8081/user/";
 
       ///地址可以直接写服务名称，负载均衡根据服务名称自动获取IP和端口
         String baseUrl = "http://user-server/user/";
-        /*for (Long id : ids) {
+        *//*for (Long id : ids) {
             users.add(userDao.queryById(id));
-        }*/
+        }*//*
         ids.forEach(id->{
             users.add(restTemplate.getForObject(baseUrl+id,User.class));
             try {
@@ -43,8 +43,7 @@ public class UserService {
             }
         });
         return users;
-    }
-/*
+    }*/
     @Autowired
     UserDao userDao;
 
@@ -55,6 +54,6 @@ public class UserService {
             users.add(userDao.queryById(id));
         });
         return users;
-    }*/
+    }
 }
 

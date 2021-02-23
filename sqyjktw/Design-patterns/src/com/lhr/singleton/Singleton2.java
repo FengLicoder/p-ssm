@@ -1,0 +1,10 @@
+package com.lhr.singleton;
+
+
+//饿汉式单例模式(线程安全)
+public class Singleton2 {
+    private static Singleton2 singleton = new Singleton2();
+    public static synchronized Singleton2 getInstance(){
+        return singleton;
+    }
+}
